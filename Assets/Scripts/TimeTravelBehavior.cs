@@ -12,10 +12,10 @@ public class TimeTravelBehavior : MonoBehaviour {
     [SerializeField] GameObject board_future;
     [SerializeField] GameObject good_future;
 
-    [SerializeField] GameObject Soldier0;
-    [SerializeField] GameObject Soldier1;
-    [SerializeField] GameObject Space0;
-    [SerializeField] GameObject Space1;
+    [SerializeField] GameObject past_objects;
+    [SerializeField] GameObject present_objects;
+    [SerializeField] GameObject future_objects;
+    [SerializeField] GameObject goodfuture_objects;
 
     void Start() {
         game_era = 1;
@@ -24,10 +24,10 @@ public class TimeTravelBehavior : MonoBehaviour {
         board_future.SetActive(false);
         good_future.SetActive(false);
 
-        Soldier0.SetActive(false);
-        Soldier1.SetActive(false);
-        Space0.SetActive(false);
-        Space1.SetActive(false);
+        past_objects.SetActive(false);
+        present_objects.SetActive(true);
+        future_objects.SetActive(false);
+        goodfuture_objects.SetActive(false);
     }
 
     void Update() {
@@ -39,10 +39,10 @@ public class TimeTravelBehavior : MonoBehaviour {
                 board_future.SetActive(false);
                 good_future.SetActive(false);
 
-                Soldier0.SetActive(false);
-                Soldier1.SetActive(false);
-                Space0.SetActive(false);
-                Space1.SetActive(false);
+                past_objects.SetActive(true);
+                present_objects.SetActive(false);
+                future_objects.SetActive(false);
+                goodfuture_objects.SetActive(false);
                 Debug.Log("PAST");
             }
         }
@@ -55,10 +55,10 @@ public class TimeTravelBehavior : MonoBehaviour {
                 board_future.SetActive(false);
                 good_future.SetActive(false);
 
-                Soldier0.SetActive(false);
-                Soldier1.SetActive(false);
-                Space0.SetActive(false);
-                Space1.SetActive(false);
+                past_objects.SetActive(false);
+                present_objects.SetActive(true);
+                future_objects.SetActive(false);
+                goodfuture_objects.SetActive(false);
                 Debug.Log("PRESENT");
             }
         }
@@ -72,19 +72,19 @@ public class TimeTravelBehavior : MonoBehaviour {
                     board_future.SetActive(true);
                     good_future.SetActive(false);
 
-                    Soldier0.SetActive(true);
-                    Soldier1.SetActive(true);
-                    Space0.SetActive(true);
-                    Space1.SetActive(true);
+                    past_objects.SetActive(false);
+                    present_objects.SetActive(false);
+                    future_objects.SetActive(true);
+                    goodfuture_objects.SetActive(false);
                     Debug.Log("BAD FUTURE");
                 } else {
                     board_future.SetActive(false);
                     good_future.SetActive(true);
 
-                    Soldier0.SetActive(false);
-                    Soldier1.SetActive(false);
-                    Space0.SetActive(false);
-                    Space1.SetActive(false);
+                    past_objects.SetActive(false);
+                    present_objects.SetActive(false);
+                    future_objects.SetActive(false);
+                    goodfuture_objects.SetActive(true);
                     Debug.Log("GOOD FUTURE");
                 }
             }
