@@ -7,7 +7,6 @@ public class Summoner : MonoBehaviour
     public Transform target;
     public float summonRate = 2.0f;
     private float nextSummonTime = 0.0f;
-    private bool isMoving = false;
     private bool isSummoning = false;
     private Animator animator;
     private MoveComponent moveComponent;
