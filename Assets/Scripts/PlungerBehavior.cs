@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlungerBehavior : MonoBehaviour {
+    [SerializeField] AudioSource newsource;
+    [SerializeField] AudioClip plungersfx;
     public float maxpull = 950.0f;
     public float minpull = 0.0f;
     private Light plungerlight;
@@ -27,6 +29,7 @@ public class PlungerBehavior : MonoBehaviour {
                     power += 625*Time.deltaTime;
                 }
             } if (Input.GetKeyUp(KeyCode.LeftShift)) {
+                newsource.PlayOneShot(plungersfx, 0.5f);
                 foreach (Rigidbody e in balls) {
                     e.AddForce(power*Vector3.left);
                 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class BouncerBehavior : MonoBehaviour {
     [SerializeField] Vector3 newscale = new Vector3(1.6f, 1.6f, 1.45f);
     [SerializeField] Vector3 oldscale = new Vector3(1.6f, 1.6f, 1.6f);
+    [SerializeField] AudioSource soundsource;
+    [SerializeField] AudioClip clip;
     private Light myLight;
 
     private void Awake() {
@@ -18,6 +20,7 @@ public class BouncerBehavior : MonoBehaviour {
         }
     }
     IEnumerator bounceBehavior() {
+        soundsource.PlayOneShot(clip, 0.5f);
         transform.localScale = newscale;
         myLight.enabled = true;
         yield return new WaitForSeconds(0.1f);

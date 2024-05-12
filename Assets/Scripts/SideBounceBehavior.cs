@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class SideBounceBehavior : MonoBehaviour {
+    [SerializeField] AudioSource newsource;
+    [SerializeField] AudioClip bounce;
     private Light myLight;
 
     private void Awake() {
@@ -14,6 +16,7 @@ public class SideBounceBehavior : MonoBehaviour {
         }
     }
     IEnumerator bounceBehavior() {
+        newsource.PlayOneShot(bounce, 0.45f);
         myLight.enabled = true;
         yield return new WaitForSeconds(0.1f);
         myLight.enabled = false;
