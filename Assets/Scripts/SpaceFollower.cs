@@ -3,7 +3,7 @@ using System.Collections;
 using static UnityEngine.EventSystems.EventTrigger;
 using System.Collections.Generic;
 
-public class FollowEntity : MonoBehaviour
+public class SpaceFollower : MonoBehaviour
 {
     public Transform centerObject;
     public float radius = 1.5f;
@@ -14,7 +14,7 @@ public class FollowEntity : MonoBehaviour
     public float respawnTime = 3f;
     public static int entityCount = 0;
 
-    public static List<FollowEntity> AllEntities = new List<FollowEntity>();
+    public static List<SpaceFollower> AllEntities = new List<SpaceFollower>();
 
 
 
@@ -92,7 +92,7 @@ public class FollowEntity : MonoBehaviour
 
             if (entityCount == 0)
             {
-                BossEntity.spawnBoss();
+                MechBoss.spawnBoss();
             }
         }
     }
@@ -129,4 +129,3 @@ public class FollowEntity : MonoBehaviour
         entityCount++;
     }
 }
- 
