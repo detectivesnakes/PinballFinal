@@ -35,7 +35,7 @@ public class PadBehavior : MonoBehaviour
             {
                 referee.gotogoodf();
             }
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
 }

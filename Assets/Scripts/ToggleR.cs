@@ -11,8 +11,15 @@ public class ToggleR : MonoBehaviour
     [SerializeField] Material lit_up;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip clip;
+    [SerializeField] GameObject ball;
+    private BallBehavior bbh;
 
     public bool R_PRESSED = false;
+
+    private void Start()
+    {
+        bbh = ball.GetComponent<BallBehavior>();
+    }
     private IEnumerator toggle()
     {
         R_PRESSED = true;
@@ -28,6 +35,7 @@ public class ToggleR : MonoBehaviour
         {
             if (R_PRESSED == false)
             {
+                bbh.score += 3000;
                 StartCoroutine(toggle());
             }
         }

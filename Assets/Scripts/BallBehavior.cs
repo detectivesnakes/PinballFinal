@@ -9,11 +9,13 @@ public class BallBehavior : MonoBehaviour {
     Vector3 spawn = new Vector3(8.00f, 0.3f, 5.05f);
     public AudioSource ambience;
     public float sfxvol = 0.18f;
+    public int score = 0;
 
     private bool isStunned = false;
     private Rigidbody rb;
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Death")) {
+            score = 0;
             StartCoroutine(DeathDelay());
         }
     }

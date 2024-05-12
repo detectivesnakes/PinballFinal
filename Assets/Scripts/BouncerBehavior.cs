@@ -8,14 +8,18 @@ public class BouncerBehavior : MonoBehaviour {
     [SerializeField] Vector3 oldscale = new Vector3(1.6f, 1.6f, 1.6f);
     [SerializeField] AudioSource soundsource;
     [SerializeField] AudioClip clip;
+    [SerializeField] GameObject theball;
+    private BallBehavior bbeh;
     private Light myLight;
 
     private void Awake() {
         myLight = GetComponent<Light>();
+        bbeh = theball.GetComponent<BallBehavior>();
     }
 
     private void OnCollisionEnter(Collision touch) {
         if (touch.gameObject.CompareTag("Ball")) {
+            bbeh.score += 1500;
             StartCoroutine(bounceBehavior());
         }
     }

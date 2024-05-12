@@ -19,23 +19,21 @@ public class TimeTravelBehavior : MonoBehaviour {
     [SerializeField] GameObject future_objects;
     [SerializeField] GameObject goodfuture_objects;
 
-    [SerializeField] GameObject travel_pad;
+    [SerializeField] GameObject toggleh;
     [SerializeField] TMP_Text eratext;
 
-    void Start() {
-        game_era = 1;
-        board_past.SetActive(false);
-        board_present.SetActive(true);
-        board_future.SetActive(false);
-        good_future.SetActive(false);
+    private ToggleHandler togh;
 
-        past_objects.SetActive(false);
-        present_objects.SetActive(true);
-        future_objects.SetActive(false);
-        goodfuture_objects.SetActive(false);
+    void Start() {
+        togh = toggleh.GetComponent<ToggleHandler>();
+        game_era = 1;
+        gotopresent();
+        eratext.text = "Target: Past";
+        game_era = 0;
     }
 
     public void gotopast() {
+        togh.resetGuards();
         board_past.SetActive(true);
         board_present.SetActive(false);
         board_future.SetActive(false);
@@ -45,8 +43,12 @@ public class TimeTravelBehavior : MonoBehaviour {
         present_objects.SetActive(false);
         future_objects.SetActive(false);
         goodfuture_objects.SetActive(false);
+        eratext.text = "Target: Past";
+        game_era = 2;
     }
+
     public void gotopresent() {
+        togh.resetGuards();
         board_past.SetActive(false);
         board_present.SetActive(true);
         board_future.SetActive(false);
@@ -58,6 +60,7 @@ public class TimeTravelBehavior : MonoBehaviour {
         goodfuture_objects.SetActive(false);
     }
     public void gotobadf(){
+        togh.resetGuards();
         board_past.SetActive(false);
         board_present.SetActive(false);
         board_future.SetActive(true);
@@ -69,6 +72,7 @@ public class TimeTravelBehavior : MonoBehaviour {
         goodfuture_objects.SetActive(false);
     }
     public void gotogoodf(){
+        togh.resetGuards();
         board_past.SetActive(false);
         board_present.SetActive(false);
         board_future.SetActive(false);

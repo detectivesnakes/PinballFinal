@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class SkeleFollowers : MonoBehaviour
 {
+    [SerializeField] GameObject theball;
+    private BallBehavior bbeh;
     public Transform centerObject;
     public float radius = 1.5f;
     public bool moveClockwise = true;
@@ -87,6 +89,7 @@ public class SkeleFollowers : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            
             gameObject.SetActive(false);
             entityCount--;
 

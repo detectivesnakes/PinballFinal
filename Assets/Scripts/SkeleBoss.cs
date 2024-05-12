@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SkeleBoss : MonoBehaviour
 {
+    [SerializeField] GameObject handler;
+    [SerializeField] GameObject pad;
     public Transform target;
     public int maxHealth = 3;
     private int currentHealth;
@@ -11,6 +13,7 @@ public class SkeleBoss : MonoBehaviour
     public static SkeleBoss bossPrefab;
     public static SkeleBoss instance;
     public float impactForce = 10f;
+    private TimeTravelBehavior ttb;
 
     public static bool isDead { get; private set; } = false;
 
@@ -95,13 +98,16 @@ public class SkeleBoss : MonoBehaviour
 
     private IEnumerator Die()
     {
-        animator.SetBool("isDying", true);
 
+        animator.SetBool("isDying", true);
+        ttb.changed_future = true;
+        pad.SetActive(true);
         if (moveComponent != null) moveComponent.SetMoving(false);
         yield return new WaitForSeconds(3f);
 
         gameObject.SetActive(false);
         isDead = true;
         FollowEntity.respawnLine(1f);
+        pad.SetActive(true);
     }
 }

@@ -12,7 +12,15 @@ public class ToggleL : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip clip;
 
+    [SerializeField] GameObject ball;
+    private BallBehavior bbh;
+
     public bool L_PRESSED = false;
+
+    private void Start()
+    {
+        bbh = ball.GetComponent<BallBehavior>();
+    }
 
     private IEnumerator toggle()
     {
@@ -28,7 +36,8 @@ public class ToggleL : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             if (L_PRESSED == false)
-            { 
+            {
+                bbh.score += 3000;
                 StartCoroutine(toggle());
             }
         }
