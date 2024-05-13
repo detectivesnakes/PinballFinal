@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpotlightScript : MonoBehaviour {
     [SerializeField] Light gamespotlight;
 
-    private float min = 1.4f;
-    private float max = 1.6f;
+    private float min = 2.1f;
+    private float max = 2.4f;
 
     private float last = 0;
     private int round = 45;
