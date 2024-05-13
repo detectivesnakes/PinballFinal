@@ -28,6 +28,7 @@ public class SkeleBoss : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         moveComponent = GetComponent<MoveComponent>();
+        ttb = handler.GetComponent<TimeTravelBehavior>();
         isDead = false;
     }
 
